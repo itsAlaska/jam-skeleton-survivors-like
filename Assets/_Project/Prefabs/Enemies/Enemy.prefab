@@ -176,6 +176,8 @@ MonoBehaviour:
   maxHealth: 3
   deathEffect: {fileID: 4737181890850088593, guid: f22ad76e53ceb224cad95e49fc1c1f15, type: 3}
   deathSound: {fileID: 8300000, guid: 8cef284e052ca45bba49cfcebb5f7354, type: 3}
+  xpReward: 1
+  xpPickupPrefab: {fileID: 8096015226560306308, guid: 20e889eab58c5da428270b65d4bf737f, type: 3}
 --- !u!82 &4109535164938712278
 AudioSource:
   m_ObjectHideFlags: 0

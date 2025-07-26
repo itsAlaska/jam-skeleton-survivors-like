@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private int xpReward = 1;
-
-
+    [SerializeField] private GameObject xpPickupPrefab;
+    
     private Transform player;
     private int currentHealth;
     private SpriteRenderer spriteRenderer;
@@ -82,6 +82,9 @@ public class Enemy : MonoBehaviour
         
         if (XPManager.Instance != null)
             XPManager.Instance.AddXP(xpReward);
+        
+        if (xpPickupPrefab != null)
+            Instantiate(xpPickupPrefab, transform.position, Quaternion.identity);
 
         // Disable visuals & collisions right away
         GetComponent<SpriteRenderer>().enabled = false;
