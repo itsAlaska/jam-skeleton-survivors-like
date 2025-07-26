@@ -2,35 +2,55 @@ using UnityEngine;
 
 public class AutoFire : MonoBehaviour
 {
-    [Header("Firing Settings")]
+    [Header("Firing")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireInterval = 0.5f;
-    [SerializeField] private Vector2 fireDirection = Vector2.right;
+    [SerializeField] private float targetingRadius = 10f;
+    [SerializeField] private LayerMask enemyLayers;
 
     private float fireTimer;
 
     private void Update()
     {
         fireTimer += Time.deltaTime;
-
         if (fireTimer >= fireInterval)
         {
-            Fire();
+            FireAtNearestEnemy();
             fireTimer = 0f;
         }
     }
 
-    private void Fire()
+    private void FireAtNearestEnemy()
     {
-        if (projectilePrefab == null || firePoint == null) return;
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, targetingRadius, enemyLayers);
 
-        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        Projectile projectile = proj.GetComponent<Projectile>();
+        Transform closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
 
-        if (projectile != null)
+        foreach (Collider2D hit in hits)
         {
-            projectile.SetDirection(fireDirection);
+            float dist = Vector2.Distance(transform.position, hit.transform.position);
+            if (dist < closestDistance)
+            {
+                closestDistance = dist;
+                closestEnemy = hit.transform;
+            }
         }
+
+        Vector2 direction = Vector2.right; // default direction
+        if (closestEnemy != null)
+        {
+            direction = (closestEnemy.position - firePoint.position).normalized;
+        }
+
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * 10f; // Adjust speed as needed
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, targetingRadius);
     }
 }
