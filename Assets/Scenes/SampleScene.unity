@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 361957618}
   - component: {fileID: 361957617}
   m_Layer: 0
-  m_Name: craiyon_012949_I_want_a_pixel_art_image_of_a_stone_wall_16x16_pixels
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: ae8969f22c9577141a68b25005608968, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -513,10 +513,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3119960584304395367, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
+    - target: {fileID: 2827927655975888109, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 7346527229798832392}
+    - target: {fileID: 2827927655975888109, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8229139643786286719, guid: bfd5f4d52473a4b44b04d4f3dcb7e4d9, type: 3}
     - target: {fileID: 3704314801873917220, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -565,6 +569,11 @@ PrefabInstance:
       addedObject: {fileID: 1227759736}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
+--- !u!4 &7346527229798832392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 192754373904467129, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
+  m_PrefabInstance: {fileID: 7346527229798832391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
