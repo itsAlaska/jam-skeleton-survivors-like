@@ -29,10 +29,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("GAME OVER!");
-        onDeath?.Invoke();
-        // You can add more later: fade out, restart, disable controls, etc.
+        FindObjectOfType<GameOverManager>()?.TriggerGameOver();
+        gameObject.SetActive(false); // Optional: make player disappear
     }
+
 
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
