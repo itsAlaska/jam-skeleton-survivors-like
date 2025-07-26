@@ -28,8 +28,15 @@ public class Projectile : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & targetLayers) != 0)
         {
-            // Handle hit here (damage, effects, etc.)
+            Enemy enemy = collision.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Damaging enemy.");
+                enemy.TakeDamage(1);
+            }
+
             Destroy(gameObject);
         }
     }
+
 }
