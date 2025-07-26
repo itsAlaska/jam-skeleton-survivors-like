@@ -561,10 +561,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2827927655975888109, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 7346527229798832392}
-    - target: {fileID: 2827927655975888109, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 8229139643786286719, guid: bfd5f4d52473a4b44b04d4f3dcb7e4d9, type: 3}
@@ -616,11 +612,6 @@ PrefabInstance:
       addedObject: {fileID: 1227759736}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
---- !u!4 &7346527229798832392 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 192754373904467129, guid: da0e49481963c4545871cd56376d4c9a, type: 3}
-  m_PrefabInstance: {fileID: 7346527229798832391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

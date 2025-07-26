@@ -187,9 +187,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 192754373904467129}
   fireInterval: 0.5
-  fireDirection: {x: 1, y: 0}
+  targetingRadius: 10
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &5799739351352756422
 GameObject:
   m_ObjectHideFlags: 0
