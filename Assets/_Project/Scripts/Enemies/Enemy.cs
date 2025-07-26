@@ -37,6 +37,23 @@ public class Enemy : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         transform.position += (Vector3)(direction * moveSpeed * Time.fixedDeltaTime);
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enemy collided with: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                Debug.Log("Damaging player!");
+                playerHealth.TakeDamage(1);
+            }
+        }
+    }
+
+
 
     public void TakeDamage(int damage)
     {
