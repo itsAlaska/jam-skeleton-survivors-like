@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private int xpReward = 1;
+
 
     private Transform player;
     private int currentHealth;
@@ -77,6 +79,9 @@ public class Enemy : MonoBehaviour
 
         if (deathSound != null && audioSource != null)
             audioSource.PlayOneShot(deathSound);
+        
+        if (XPManager.Instance != null)
+            XPManager.Instance.AddXP(xpReward);
 
         // Disable visuals & collisions right away
         GetComponent<SpriteRenderer>().enabled = false;
